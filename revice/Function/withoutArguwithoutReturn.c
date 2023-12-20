@@ -102,16 +102,21 @@ void arr1d()
 
 
 
+//  largest element
+
+
+
 void large(int arr[], int size)
 {
-  for (int i = 1; i < size; i++)
+    int large=arr[0];
+  for (int i = 0; i < size; i++)
   {
-    if (arr[0] < arr[i])
+    if (arr[i]>large)
     {
-      arr[0] = arr[i];
+      large=arr[i];
     }
   }
-  printf("\nlargest element = %d\n", arr[0]);
+  printf("\nlargest element = %d\n", large);
 }
 
 // smallest element
@@ -119,14 +124,14 @@ void large(int arr[], int size)
 
 
 void small(int arr[],int size){
-  
+  int small=arr[0];
   for(int i=0;i<size;i++){
-    if(arr[i]<arr[0])
+    if(arr[i]<small)
     {
-      arr[0]=arr[i];
+      small=arr[i];
     }
   }
-  printf("\nsamllest element=%d",arr[0]);
+  printf("\nsmallest element=%d",small);
 }
 
 //  even odd
