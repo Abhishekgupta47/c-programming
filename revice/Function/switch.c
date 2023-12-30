@@ -46,6 +46,9 @@ int main()
           break;
     case 12:
       printf("the month is December ");
-        break;                
+        break; 
+    default:
+      printf("The month number is invalid ");                    
   }
+  
 }
