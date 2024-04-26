@@ -18,6 +18,7 @@ void main()
   int choice=0;
   while(choice !=9)
   {
-    
+    printf("\n\n***********Main Menu*************\n");
+    printf("choose one option from the following lis ...\n");
   }
 }
