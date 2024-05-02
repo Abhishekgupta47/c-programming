@@ -7,7 +7,7 @@
  struct node *head;
  void beginsert ();   
 void lastinsert ();  
-// void randominsert();  
+void randominsert();  
 // void begin_delete();  
 // void last_delete();  
 // void random_delete();  
@@ -21,7 +21,7 @@ int main()
     printf("\n\n***********Main Menu*************\n");
     printf("choose one option from the following list ...\n");
     printf("\n===============================================\n");
-    printf("\n1.insert in begining\n2.insert at the last");
+    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly");
     printf("\nenter your choice?\n");
     scanf("%d",&choice);
     switch(choice)
@@ -31,6 +31,9 @@ int main()
       break;
       case 2:
       lastinsert();
+      break;
+      case 3:
+      randominsert(); 
       break;
       default:
       printf("please enter valid choice");
@@ -57,6 +60,8 @@ void beginsert(){
     printf("\n Node inserted ");
   }
 }
+
+
  void lastinsert (){
   struct node *new1,*temp;
   int item;
@@ -87,5 +92,35 @@ void beginsert(){
     }
   }
   }
+
+
+  void randominsert(){
+    int i,loc,item;
+    struct node *temp,*new1;
+      new1=(struct node*)malloc(sizeof(struct node));
+      if(new1==NULL){
+        printf("\nOVERFLOW");
+      }
+        else{
+          printf("enter the data ");
+          scanf("%d",&item);
+          printf("enter the location");
+          scanf("%d",&loc);
+          temp=head;
+          for(int i=0;i<loc;i++){
+            temp=temp->next;
+            if(temp==NULL){
+              printf("\n location not found");
+              return;
+            }
+          }
+          new1->next=temp->next; 
+          temp->next=new1;
+          printf("node inserted");
+        }
+
+      }
+    
+  
 
  
