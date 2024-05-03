@@ -11,8 +11,8 @@ void randominsert();
 void begin_delete();  
 void last_delete();  
 void random_delete();  
-// void display();  
-// void search();
+void display();  
+void search();
 int main()
 {
   int choice=0;
@@ -21,7 +21,7 @@ int main()
     printf("\n\n***********Main Menu*************\n");
     printf("choose one option from the following list ...\n");
     printf("\n===============================================\n");
-    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete\n6.random_delete");
+    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete\n6.random_delete\n7.search\n8.search");
     printf("\nenter your choice?\n");
     scanf("%d",&choice);
     switch(choice)
@@ -42,6 +42,12 @@ int main()
       last_delete();
       case 6:
       random_delete();
+      break;
+      case 7:
+      search();
+      break;
+      case 8:
+      display();
       break;
       default:
       printf("please enter valid choice");
@@ -193,6 +199,47 @@ void random_delete(){
   temp2->next=temp1->next;
   free(temp1);
   printf("\n deleted node %d",loc+1);
+}
+void search(){
+  struct node *temp;
+  int item,i=0,flag;
+  temp=head;
+  if(head==NULL){
+    printf("\n the list is empty");
+
+  }
+  else{
+    printf("\n enter the item you want to search from the linked list");
+    scanf("%d",&item);
+    while(temp !=NULL)
+    {
+      if(temp->data==item){
+        printf("\nitem is found at location ",i+1);
+        flag=0;
+        break;
+      }
+      else{
+        flag=1;
+      }
+      i++;
+      temp=temp->next;
+    }
+    if(flag==1){
+      printf("\n item is not found\n");
+    }
+  }
+}
+void display(){
+  struct node *temp;
+  temp=head;
+  if(temp==NULL)
+  {
+    printf("nothing to print ");
+
+  }
+  else{
+    printf("\n printing the values....\n")
+  }
 }
     
   
