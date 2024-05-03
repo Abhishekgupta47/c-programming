@@ -8,7 +8,7 @@
  void beginsert ();   
 void lastinsert ();  
 void randominsert();  
-// void begin_delete();  
+void begin_delete();  
 // void last_delete();  
 // void random_delete();  
 // void display();  
@@ -21,7 +21,7 @@ int main()
     printf("\n\n***********Main Menu*************\n");
     printf("choose one option from the following list ...\n");
     printf("\n===============================================\n");
-    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly");
+    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete");
     printf("\nenter your choice?\n");
     scanf("%d",&choice);
     switch(choice)
@@ -35,12 +35,17 @@ int main()
       case 3:
       randominsert(); 
       break;
+      case 4:
+      begin_delete();
+      break;
       default:
       printf("please enter valid choice");
     }
   }
    return 0;
 }
+
+// begin insert
 
 
 void beginsert(){
@@ -60,6 +65,8 @@ void beginsert(){
     printf("\n Node inserted ");
   }
 }
+
+// last insert
 
 
  void lastinsert (){
@@ -93,6 +100,7 @@ void beginsert(){
   }
   }
 
+// random inser
 
   void randominsert(){
     int i,loc,item;
@@ -120,6 +128,24 @@ void beginsert(){
         }
 
       }
+
+      // delete from begining
+
+      void begin_delete()
+      {
+        struct node *temp;
+        if(head==NULL)
+        {
+          printf("\n the linked list is empty");
+        }
+        else{
+          temp=head;
+          head=temp->next;
+          free(temp);
+          printf("node deleted successfully");
+        }
+      }
+
     
   
 
