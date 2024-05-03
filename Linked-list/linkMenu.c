@@ -10,7 +10,7 @@ void lastinsert ();
 void randominsert();  
 void begin_delete();  
 void last_delete();  
-// void random_delete();  
+void random_delete();  
 // void display();  
 // void search();
 int main()
@@ -21,7 +21,7 @@ int main()
     printf("\n\n***********Main Menu*************\n");
     printf("choose one option from the following list ...\n");
     printf("\n===============================================\n");
-    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete");
+    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete\n6.random_delete");
     printf("\nenter your choice?\n");
     scanf("%d",&choice);
     switch(choice)
@@ -40,6 +40,8 @@ int main()
       break;
       case 5:
       last_delete();
+      case 6:
+      random_delete();
       break;
       default:
       printf("please enter valid choice");
@@ -173,6 +175,24 @@ void last_delete(){
     printf("\n node is deleted from the last ");
   }
 
+}
+void random_delete(){
+  struct node *temp1,*temp2;
+  int loc;
+  printf("\nenter the location of the node after which you want to perform deletion\n");
+  scanf("%d",&loc);
+  temp1=head;
+  for(int i=0;i<loc;i++){
+    temp2=temp1;
+    temp1=temp1->next;
+    if(temp1==NULL){
+      printf("\n can't delete");
+      return;
+    }
+  }
+  temp2->next=temp1->next;
+  free(temp1);
+  printf("\n deleted node %d",loc+1);
 }
     
   
