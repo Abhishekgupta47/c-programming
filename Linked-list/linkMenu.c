@@ -21,7 +21,7 @@ int main()
     printf("\n\n***********Main Menu*************\n");
     printf("choose one option from the following list ...\n");
     printf("\n===============================================\n");
-    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete\n6.random_delete\n7.search\n8.search");
+    printf("\n1.insert in begining\n2.insert at the last\n3.inseert randomly\n4.begin_delete\n5.last_delete\n6.random_delete\n7.search\n8.display");
     printf("\nenter your choice?\n");
     scanf("%d",&choice);
     switch(choice)
@@ -238,7 +238,13 @@ void display(){
 
   }
   else{
-    printf("\n printing the values....\n")
+    printf("\n printing the values....\n");
+
+    while(temp !=NULL)
+    {
+      printf("%d\n",temp->data);
+      temp=temp->next;
+    }
   }
 }
     
