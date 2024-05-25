@@ -7,6 +7,7 @@ void insert_specific();
  void deletion_last();
  void deletion_specified();
  void display();
+ void search();
 struct node{
   struct node *prev;
   int data;
@@ -20,7 +21,7 @@ void main()
   while(choice !=9){
   printf("\n*******main menu*******\n");
   printf("\n==============================\n");
-  printf("\n1.insert at beginning\n2.insert at last\n3.insert at specific location\n4.deletion at begining\n5.deletion at last\n6.deletion at specified\n7.display");
+  printf("\n1.insert at beginning\n2.insert at last\n3.insert at specific location\n4.deletion at begining\n5.deletion at last\n6.deletion at specified\n7.display\n8.serach");
   printf("\nenter the coice betwean 1 to 9\n");
   scanf("%d",&choice);
   switch(choice)
@@ -45,6 +46,9 @@ void main()
     break;
     case 7:
     display();
+    break;
+    case 8:
+    search();
     break;
     default:
     printf("\n enter the valid input please");
@@ -229,6 +233,38 @@ void display()
     temp=temp->next;
   }
 }
+ void search()
+ {
+  struct node *temp;
+  int item,i=0,flag;
+  temp=head;
+  if(temp==NULL)
+  {
+    printf("\nempty list");
+
+  }
+  else{
+    printf("\n enter the item which you want to search");
+    scanf("%d",&item);
+    while(temp!=NULL)
+    {
+      if(temp->data=item){
+        printf("\nitem found at the location %d",i+1);
+        flag=0;
+        break;
+      }
+      else{
+        flag=1;
+      }
+      i++;
+      temp=temp->next;
+    }
+    if(flag==1)
+    {
+      printf("\n item not found \n");
+    }
+  }
+ }
 
 
  
